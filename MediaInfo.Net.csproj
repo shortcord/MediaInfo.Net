@@ -2,6 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>
 
+  <ItemGroup Condition=" $(Platform) == 'x86' ">
+    <ContentWithTargetPath Include="Natives\Windows\x86\MediaInfo.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>MediaInfo.dll</TargetPath>
+    </ContentWithTargetPath >
+  </ItemGroup>
+
+  <ItemGroup Condition=" $(Platform) == 'x64' ">
+    <ContentWithTargetPath Include="Natives\Windows\x86_64\MediaInfo.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>MediaInfo.dll</TargetPath>
+    </ContentWithTargetPath >
+  </ItemGroup>
 </Project>
